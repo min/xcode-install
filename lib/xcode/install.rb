@@ -521,7 +521,7 @@ HELP
 
     def initialize(downloadable)
       @version = Gem::Version.new(downloadable['version'])
-      @install_prefix = apply_variables(downloadable['userInfo']['InstallPrefix'])
+      @install_prefix = '$(DEVELOPER)'
       @name = apply_variables(downloadable['name'])
       @identifier = apply_variables(downloadable['identifier'])
       @source = apply_variables(downloadable['source'])
