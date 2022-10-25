@@ -564,9 +564,10 @@ HELP
       fail Informative, "Failed to download #{@name}." if dmg_path.nil?
 
       return unless should_install
-      prepare_package unless pkg_path.exist?
+      # prepare_package unless pkg_path.exist?
       puts "Please authenticate to install #{name}..."
-      `sudo installer -pkg #{pkg_path} -target /`
+      # `sudo installer -pkg #{pkg_path} -target /`
+      `xcrun simctl runtime add #{dmg_path}`
       fail Informative, "Could not install #{name}, please try again" unless installed?
       source_receipts_dir = '/private/var/db/receipts'
       target_receipts_dir = "#{@install_prefix}/System/Library/Receipts"
