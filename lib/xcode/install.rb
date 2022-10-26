@@ -521,7 +521,7 @@ HELP
 
     def initialize(downloadable)
       @version = Gem::Version.new(downloadable['version'])
-      @install_prefix = '$(DEVELOPER)'
+      @install_prefix = '/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS $(DOWNLOADABLE_VERSION_MAJOR).$(DOWNLOADABLE_VERSION_MINOR).simruntime'
       @name = apply_variables(downloadable['name'])
       @identifier = apply_variables(downloadable['identifier'])
       @source = apply_variables(downloadable['source'])
